@@ -11,12 +11,12 @@
 
 ##Πως να εγγαταστίσεις το δικό σου μετεορολογικό σταθμό 
 
-1. [Καταχόριση του μετεορολογικού σου βαθμού](register.md)
-1. [Building your Weather Station Part I](build.md)
-1. [Set up the software](software.md)
-1. [Building your Weather Station Part II](build2.md)
-1. [Testing your Weather Station](test.md)
-1. [Install the Weather Station outside](siting.md)
+1. [Καταχόριση του μετεωρολογικού σου βαθμού](register.md)
+1. [Χτίστε το μετεωρολογικό σταθμό σας μέρος 1<sup>o</sup>](build.md)
+1. [Ρύθμισε το λογισμικό σου](software.md)
+1. [Χτίστε το μετεωρολογικό σταθμό σας μέρος 2<sup>o</sup>](build2.md)
+1. [Δοκιμαστε το μετεωρολογικό σταθμό](test.md)
+1. [Εγκαταστήστε τον μετεωρολογικό σας σταθμό έξο](siting.md)
 
 ## Resources
 
