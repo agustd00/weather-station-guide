@@ -5,62 +5,61 @@
 
    ![](images/build_01.jpg)
 
-1. Ανίξτε το κουτί και βγάλτε τα περιεχόμενα του
+1. Ανοίξτε το κουτί και βγάλτε τα περιεχόμενα του
 
    ![](images/build_03.jpg)
 
-1. Βγάλτε το Raspberry Pi από το κουτί του και βάλτε το πάνω στην πλαστική βάση του όπος σας δίχνουμε παρακάτο .
+1. Βγάλτε το Raspberry Pi από το κουτί του και βάλτε το πάνω στην πλαστική βάση του όπως σας δίχνουμε παρακάτω .
 
    ![](images/build_04.jpg)
 
-1. Βγάλτε τα περιεχόμενα από το κύριο κουτί τοποθέτισης 
+1. Βγάλτε τα περιεχόμενα από το κύριο κουτί τοποθέτησης 
 
    ![](images/build_06.jpg)
 
-1. Χρεισιμοποιήστε τα 4 βιδάκια  8εκ. και τα 4 hex spacers για να επικολίσετε το Raspberry Pi στη πλαστική του βάση.Μετά βάλτε το κάλιμα  CN19895 πάνο από τα καρφάκια GPIO του Raspberry Pi.
+1. Χρησιμοποιήστε τα 4 βιδάκια  8εκ. και τα 4 hex spacers για να επικολίσετε το Raspberry Pi στη πλαστική του βάση.Μετά βάλτε το κάλιμα  CN19895 πάνο από τα καρφάκια GPIO του Raspberry Pi.
 
    ![](images/build_07.jpg)
 
-1. Έπιτα πάρτε τα συνδεδεμένα μεταξή τους πλακέτα καιρού και πλακέτα έσθισης αέρος. 
+1. Έπειτα πάρτε τα συνδεδεμένα μεταξή τους πλακέτα καιρού και πλακέτα έσθισης αέρος. 
    ![](images/build_08.jpg)
 
-1. Χρεισιμοποιήστε έναν κόφτι για να χορίσετε της δύο πλακέτες.
+1. Χρησιμοποιήστε έναν κόφτι για να χωρίσετε της δύο πλακέτες.
 
    ![](images/build_09.jpg)
 
-1. Πάρτε την μπαταρία ι οποία μιάζει με νόμισμα και βάλτε την μέσα στην πλακέτα καιρού.
+1. Πάρτε την μπαταρία η οποία μοιάζει με νόμισμα και βάλτε την μέσα στην πλακέτα καιρού.
 
    ![](images/build_10.jpg)
    ![](images/build_11.jpg)
 
-1. Τώρα μποπίτε να βάλετε την πλακέτα καιρού πάνω από το Raspberry Pi, αφού επιβεβαιοθείτε οτι η επιφάνια τησ πλακέτας καιρού ευθιγραμίζεται με τα καρφάκια τησ θίκης CN19895.
+1. Τώρα μπορείτε να βάλετε την πλακέτα καιρού πάνω από το Raspberry Pi, αφού επιβεβαιοθείτε οτι η επιφάνια της πλακέτας καιρού ευθιγραμίζεται με τα καρφάκια της θίκης CN19895.
 
    ![](images/build_12.jpg)
 
-1.  Χρεισιμοποιήστε τησ 4 βίδες τον 4εκ. για να ασφαλίσετε την πλακέτα καιρού στο Raspberry Pi.
+1.  Χρησιμοποιήστε της 4 βίδες τον 4εκ. για να ασφαλίσετε την πλακέτα καιρού στο Raspberry Pi.
 
    ![](images/build_13.jpg)
 
-1. Χρεισιμοποιήστε μια χρεοστική καρτα ανάμεσα στα καρφάκια  Use a credit card placed between the pins on the receptacle to angle each row of pins outwards a little, to ensure a good contact is made.
+1. Χρησιμοποιήστε μια χρεοστική κάρτα ανάμεσα στα καρφάκια στη θήκη για να λυγίσεται κάθε σειρά από καρφάκια λίγο προς τα έξω για να βεβαιοθείτε οτι κάνει καλή επαφή.
 
    ![](images/build_14.jpg)
    ![](images/build_15.jpg)
 
-## Powering up the Pi
+## Ανάβοντας το Pi
 
-1. You can now plug a keyboard, mouse, Ethernet cable, and HDMI cable into the Raspberry Pi.
-
+1. Τώρα μπορείτε να συνδέσετε ένα πληκτρολόγιο,ποντίκι,καλωδιο Ethernet,και καλώδιο HDMI μέσα στο raspberry Pi.
    ![](images/build_16.jpg)
 
-1. To power your Raspberry Pi, you could use a standard 5V power supply or the power over Ethernet (PoE) kit, which is included.
+1. Για να ανάψετε το Raspberry Pi,Θα μπορούσατε να χρησημοποιήσετε μια κανονική πηγή ενέργειας 5v ή την ενέργεια του Ethernet (PoE), το οποίο συμπεριλαμβάνετε.
 
    ![](images/build_17.jpg)
 
-1. Connect an Ethernet cable (not included) to the two PoE adaptors. Plug the power supply into the appropriate adaptor.
+1. Σύνδεστε το καλώδιο Ethernet (δεν συμπεριλαμβάνετε) στους δυο PoE αντάπτορες .  Σύνδεστε την πηγή ενέργειας στον σωστό αντάπτορα.
 
    ![](images/build_18.jpg)
 
-1. One adaptor plugs into the Raspberry Pi as shown below. The other end can be connected to a network point and a wall socket.
+1. Ένας αντάπτορας σύνδαιετε στο Raspberry Pi όπως δείχνει παρακάτω. The other end can be connected to a network point and a wall socket.
 
    ![](images/build_19.jpg)
 
