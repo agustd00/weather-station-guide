@@ -59,10 +59,10 @@
 
    ![](images/build_18.jpg)
 
-1. Ένας αντάπτορας σύνδαιετε στο Raspberry Pi όπως δείχνει παρακάτω. The other end can be connected to a network point and a wall socket.
+1. Ένας αντάπτορας σύνδαιετε στο Raspberry Pi όπως δείχνει παρακάτω.Το άλλο άκρο μπορεί να συνδεθεί σε ένα σημείο σύνδεσης και μια μπρίζα.
 
    ![](images/build_19.jpg)
 
-## What Next
+## Επόμενο
 
-1. You can now proceed to the [Software Setup](software.md) or, if you prefer, you can continue to [Building your Weather Station Part II](build2.md).
+1. Τώρα μπορείτε να προχωρίσετε στη [Ρύθμηση Λογισμικού](software.md) ή, αν προτιμάτε, μπορείτε να συνεχίσεται στο [Χτίζοντας τον Μετεωραιλογικό Σταθμός Μέρος 2](build2.md).
