@@ -1,18 +1,18 @@
-# Building your Weather Station Part II
-## Setting up the Air Sensor board
-1. You'll need the following parts to set up the Weather Station sensors.
+# Χτίζοντας τον μετεωρολογικό σταθμό μερος 2 
+## Ρυθμίζοντας την πλακέτα αίσθησης αέρος.
+1.  Θα χρειαστήτε τα παρακάτω κομμάτια για να ρυθμίσεται τους αισθητήρες του μετεωρολογικού σταθμού.
    
    ![](images/build_20.jpg)
    
-1. Take the air sensor board and place it on its acrylic base.
+1. Πάρτε την πλακέτα αίσθησης αέρος και τοποθετίστε την πάνω στη πλαστική βάση.
 
 	![](images/build_21.jpg)
 	
-1. Use the fixing screws, fixing nuts, and the PCB spacers to affix the board to the base.
+1. Χρεισημοποιίστε της βοηθητικές βίδες,παξιμαδάκια και τα PCB για να εφαρμόσετε την πλακέτα στη βάση.
 
 	![](images/build_22.jpg)
 	
-1. The air sensor board can now be mounted in its container using the 10mm screws.
+1. Η πλακέτα αίσθησης αέρος μπορεί να  The air sensor board can now be mounted in its container using the 10mm screws.
 
 	![](images/build_24.jpg)
 
