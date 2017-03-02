@@ -12,36 +12,36 @@
 
 	![](images/build_22.jpg)
 	
-1. Η πλακέτα αίσθησης αέρος μπορεί να  The air sensor board can now be mounted in its container using the 10mm screws.
+1. Η πλακέτα αίσθησης αέρος μπορεί να τοποθετιθεί μεσα στο κουτί του χρεισημοποιώντας τις βύδες 10cm.
 
 	![](images/build_24.jpg)
 
-1. Remove the grommets from the housing on the side of the board with the exposed sockets.
+1. Βγάλτε τα πλαστικά από τα πλάγια του κουτιού.
 
 	![](images/build_25.jpg)
 	
-1. Attach the soil temperature sensor's RJ11 and the loose RJ11 to the board as shown below.
+1. Εφαρμόστε το σκληρό RJ11 στον αισθιτίρα θέρμανσης και το ευλίγιστο  RJ11  στη πλακέτα όπως δείχνουμε παρακάτω.
 
 	![](images/build_26.jpg)
 	![](images/build_27.jpg)	
 
-1. You can now secure the lid of the box. Do not try and place the grommets back into the box. The sensors on the board need to be able to have air flowing around them.
+1. Τώρα μπορείτε να βάλετε το καπάκι του κουτιού.Μην προσπαθίσετε να ξαναβάλετε τα πλαστικά στο κουτί. Οι αισθιτίρες της πλακέτας χρειάζονται να αερίζονται.
 
-## Setting up the other sensors
+## Φτιάχνοντας τους υπόλοιπους αισθητίρες
 
-1. Take the larger container and your mounted Raspberry Pi, with all cables removed.
+1. Πάρτε το μεγαλύτερο κουτί και το κλεισμένο Raspberry Pi, με όλα τα καλώδια αποσυνδεμένα.
 
 	![](images/build_28.jpg)
 
-1. Affix the base to the container using the remaining 10mm screws.
+1. Σταθεροποιήστε την βάση στο κουτί χρησημοποιώντας το υπόλοιπες βίδες 10mm.
 
 	![](images/build_29.jpg)
 	
-1. Remove the three grommets from the side of the box opposite the three ports. Using a sharp knife or scalpel, remove the first of the small circles from one of the grommets.
+1. Αφαιρέστε τα τρία πλαστικά απο την αντίθετη πλευρά του κουτιού απο της τρείς θήρες. Χρησημοποιώντας ένα κοφτερό μαχαίρι ή κοφτί, αφαιρέστε τον πρώτο μικρό κύκλο απο τα πλαστικά.
 
 	![](images/build_30.jpg)
 	
-1. The rain gauge has an attached RJ11 with a water-tight fixing assembly on the end. Remove the plastic nut from the fixing assembly.
+1. Ο μετρητής βροχής έχει συνδεμένο RJ11 με ένα υδατοστέγες εξάρτημα συναμολόργησης στην άκρη. Βγάλτε το πλαστικό παξιμάδι Remove the plastic nut from the fixing assembly.
 
 	![](images/build_31.jpg)
 	
