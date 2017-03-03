@@ -41,37 +41,37 @@
 
 	![](images/build_30.jpg)
 	
-1. Ο μετρητής βροχής έχει συνδεμένο RJ11 με ένα υδατοστέγες εξάρτημα συναμολόργησης στην άκρη. Βγάλτε το πλαστικό παξιμάδι Remove the plastic nut from the fixing assembly.
+1. Ο μετρητής βροχής έχει συνδεμένο RJ11 με ένα υδατοστέγες εξάρτημα συναμολόργησης στην άκρη. Βγάλτε το πλαστικό παξιμάδι απο το καθορισμό συναμολόργησης.
 
 	![](images/build_31.jpg)
 	
-1. Thread the RJ11 cable through the hole you have made in the grommet, as shown below. Make sure the grommet is the correct way around.
+1. Περάστε το καλώδιο RJ11 μέσα απο την τρύπα που έχεται κάνει στο πλαστικό, όπως δείχνεται παρακάτω. Βεβαιωθείτε ότι το πλαστικό δεν είναι αναποδογυρισμένο.
 
 	![](images/build_32.jpg)
 	
-1. Then thread the plastic nut over the end of the RJ11 cable.
+1. Μέτα περάστε το πλαστικό παξιμάδι στην άκρη του καλωδίου RJ11.
 
 	![](images/build_33.jpg)
 	
-1. Screw the plastic nut firmly to the fixing assembly.
+1. Βιδώστε τα πλαστικά παξιμαδάκια σφικτά στο καθορισμό συναμολόργησης.
 
 	![](images/build_34.jpg)
 	
-1. You can now connect the anemometer to the weather vane.
+1. Τώρα μπορείτε να συνδέσετε το ανεμόμετρο πάνω στον ανεμοδείκτη.
 
 	![](images/build_36.jpg)
 	
-1. Repeat the above steps for attaching the fixing assembly around the grommet. 
+1. Επαναλαμβάνετε τα παραπάνω βήματα για να συνδέσετε τον καθορισμό συναμολόργησης γύρω απο το πλαστικό. 
 	
-1. Place both of the grommets back into the housing, and tighten the fixing assemblies so that they form a seal around the RJ11 cables.
+1. Βάλτε και τα δύο πλαστικά πίσω στο κουτί, και σφίξτε τον καθορισμό συναμολόργησης ώστε να σχηματίσουν μια σφράγιση γύρω απο τα καλώδια RJ11.
 
 	![](images/build_35.jpg)
 	
-1. The RJ11 cable that runs from the air sensor board uses one of the large black plastic fixing assemblies included in the kit. Disassemble the assembly.
+1. Το καλώδιο RJ11 που περιτριγηρίζει απο τη πλακέτα αισθητήρα αέρος χρησημοποιεί ένα μεγάλα μαύρα πλαστικά καθορισμού συναμολόργησης που βρίσκονται μέσα στο κουτί.Αποσυναρμολογήστε τη συνδεσμολογία.
 
 	![](images/build_37.jpg)
 	
-1. Cut the third grommet, removing two of the rubber circles.
+1. Κόψτε το τρίτο πλαστικό, αφαιρώντας removing two of the rubber circles.
 
 	![](images/build_38.jpg)
 	
