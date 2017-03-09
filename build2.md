@@ -69,6 +69,7 @@
 	
 1. Το καλώδιο RJ11 που περιτριγηρίζει απο τη πλακέτα αισθητήρα αέρος χρησημοποιεί ένα μεγάλα μαύρα πλαστικά καθορισμού συναμολόργησης που βρίσκονται μέσα στο κουτί.Αποσυναρμολογήστε τη συνδεσμολογία.
 
+
 	![](images/build_37.jpg)
 	
 1. Κόψτε το τρίτο πλαστικό, αφαιρώντας δύο από τούς πλαστικούς κύκλους.
@@ -87,17 +88,21 @@
 
 	![](images/build_41.jpg)
 	
-1. Βγάλτε ένα πλαστικό από την πλευρά του κουτιού αντίθετη από την θύρα Ethernet του Raspberry Pi. Κώψτε 2 κύκλους από το πλαστικό και μετά περάστε το μέσα από το καλώδιο Ethernet(δεν συμπεριλαμβάνετε) μαζί με ένα μεγάλο καθορισμό συναρμολόγησης. Μπορεί να  You may find the Ethernet cable hard to fit through the fixing. If so, you can carefully trim material from the sides of the Ethernet cable with a sharp scalpel until it will fit through, being careful not to cut any of the cables. 
+1. Βγάλτε ένα πλαστικό από την πλευρά του κουτιού αντίθετη από την θύρα Ethernet του Raspberry Pi. Κώψτε 2 κύκλους από το πλαστικό και μετά περάστε το μέσα από το καλώδιο Ethernet(δεν συμπεριλαμβάνετε) μαζί με ένα μεγάλο καθορισμό συναρμολόγησης. Μπορεί να βρείτε το καλώδιο Ethernet δύσκολο να χωρέσει μέσα από το καθορισμό. Αν ναι, μπορείτε να κόψετε προσεκτικά το υλικό από τα πλευρά του καλωδίου Ethernet με ένα κοφτερό κόφτη μέχρι να χωρέσει, προσέχωντας να μην κόψετε κανένα απο τα καλωδιάκια. 
 
 	![](images/build_42.jpg)
 	
-1. Place the grommet back into the housing, then attach the PoE adaptor. All the cables can now be plugged into their labelled ports.
+1. Βάλτε το πλαστικό πίσω στο κουτί, τότε συνδέστε το αντάπτορα PoE. Όλα τα καλώδια μπορούν τώρα να συνδεθούνε στις θήρες με το όνομα τους.
 
 	![](images/build_44.jpg)
 	
-1. You can remove some more grommets at this point, and plug in an HDMI cable, mouse, and keyboard. This will allow you to install the software, if you have not done so already, or test that the software is working.
+1. Μπορείτε να αφαιρέσετε περισσότερα απο τα πλαστίκα σε αυτο το σημείο, και να συνδέσετε ένα καλώδιο HDMI, ποντίκι, και πληκτρολόγιο. Αυτο θα σας επιτρέψει να εγκαταστήσετε το λογισμικό,αν δεν το έχετε κάνει, τσεκάρετε αν δουλεύει το λογισμικό.
 
 	![](images/build_45.jpg)
 	
-## What Next?
-1. If you have not yet set up the software, then head on over to the [Software Guide](software.md), to configure the Weather Station. If you have done this already, then you can proceed to [Testing your Weather Station](test.md).
+## Επόμενο?
+1. Αν δεν έχετε φτιάξει το λογισμικό, τότε πηγένεται στο [Οδηγό λογισμικού](software.md),  to configure the Weather Station. If you have done this already, then you can proceed to [Testing your Weather Station](test.md).
+,
+
+0
++0
