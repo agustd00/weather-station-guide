@@ -71,23 +71,23 @@
 
 	![](images/build_37.jpg)
 	
-1. Κόψτε το τρίτο πλαστικό, αφαιρώντας removing two of the rubber circles.
+1. Κόψτε το τρίτο πλαστικό, αφαιρώντας δύο από τούς πλαστικούς κύκλους.
 
 	![](images/build_38.jpg)
 	
-1. As the fixing assembly is a little large for the RJ11 cable, wrap the end of the cable with a little duct tape or electrician's tape.
+1. Καθώς ο καθορισμός συναμολόγησης είναι λίγο μεγαλύτερο για το καλώδιο RJ11, τυλίξτε το άκρο του καλωδίου με λίγη κολλυτική ταινία ή ταινία ηλεκτρολόγου.
 
 	![](images/build_39.jpg)
 	
-1. Place the fixing assembly and grommet over the RJ11 cable as shown. 
+1. Τοποθετήστε το καθορισμό συναμολόγη0σης και πλαστικό πάνω από το καλώδιο RJ11 όπως σας δίχνουμε. 
 
 	![](images/build_40.jpg)
 	
-1. As you did before, tighten the assembly around the cable and place the grommet back into the housing.
+1. Όπως και πριν,σφίξτε τον καθορισμό γύρο απο το καλώδιο και βάλτε το πλαστικό πίσω στο κουτί.
 
 	![](images/build_41.jpg)
 	
-1. Remove a grommet from the side of the housing opposite the Raspberry Pi's Ethernet port. Cut two circles from the grommet and then thread it over your Ethernet cable (not included) along with a large fixing assembly. You may find the Ethernet cable hard to fit through the fixing. If so, you can carefully trim material from the sides of the Ethernet cable with a sharp scalpel until it will fit through, being careful not to cut any of the cables. 
+1. Βγάλτε ένα πλαστικό από την πλευρά του κουτιού αντίθετη από την θύρα Ethernet του Raspberry Pi. Κώψτε 2 κύκλους από το πλαστικό και μετά περάστε το μέσα από το καλώδιο Ethernet(δεν συμπεριλαμβάνετε) μαζί με ένα μεγάλο καθορισμό συναρμολόγησης. Μπορεί να  You may find the Ethernet cable hard to fit through the fixing. If so, you can carefully trim material from the sides of the Ethernet cable with a sharp scalpel until it will fit through, being careful not to cut any of the cables. 
 
 	![](images/build_42.jpg)
 	
