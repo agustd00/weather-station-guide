@@ -101,7 +101,7 @@
 	![](images/build_45.jpg)
 	
 ## Επόμενο?
-1. Αν δεν έχετε φτιάξει το λογισμικό, τότε πηγένεται στο [Οδηγό λογισμικού](software.md),  to configure the Weather Station. If you have done this already, then you can proceed to [Testing your Weather Station](test.md).
+1. Αν δεν έχετε φτιάξει το λογισμικό, τότε πηγένεται στο [Οδηγό λογισμικού](software.md), για να διαμορφώσετε το μετεωρολογικό σταθμό. Αν το έχετε ήδη κάνει, τότε μπορείτε να προχωρίσετε στο [Δοκιμάζωντας το Μετεωρολογικό Σταθμό](test.md).
 ,
 
 0
