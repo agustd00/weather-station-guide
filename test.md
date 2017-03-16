@@ -1,11 +1,11 @@
-# Testing your Weather Station
+# Δοκιμάζοντας τον Μετεωρολογικό Σταθμού
 
-With all your sensors connected, it's a good idea to confirm that your weather station is recording data and that it is able to upload it to the Oracle database.
+Με όλους τους αισθητήρες συνδεδεμένους, είναι καλό να βεβαιωθείτε ότι ο μετεωρολογικός σταθμός σας καταγράφει δεδομένα και ότι μπορεί να το ανεβάσει στη βάση Oracle.
 
-## Manipulate and measure the sensors
-1. The anemometer and rain gauge can be manipulated as neither will be recording data unless they are physically moved. Spinning the anemometer and tilting the rain gauge back and forth a few times while the next set of instructions are followed will result in some data being logged. 
+## Χειρίζοντας τους αισθητήρες
+1. Το ανεμόμετρο και το βροχόμετρο μπορούν να χειριστούν καθώς κανένα απο τα δύο δεν καταγράφει δεδομένα εκτός αν κινηθούν σωματικά. Στρίβοντας το ανεμόμετρο και γέρνοντας το βροχόμετρο μπρός και πίσω μερικές φορές καθώς ακολουθείτε τα παρακάτω βήματα θα έχει ως αποτέλεσμα να φορτωθούν τα δεδομένα. 
 
-1. Open up a terminal window (**ctrl** + **alt** + **t**) and then change into the `weather-station` directory:
+1. Ανοίξτε ένα τερματικό παράθυρο (**ctrl** + **alt** + **t**) and then change into the `weather-station` directory:
 
   ```bash
   cd weather-station
