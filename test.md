@@ -35,19 +35,19 @@
 
   ![](images/test_02.png)
 
-1. Κάθε `Κατάσταση Απόκρισης: 201` μηνημα message means that a row of the local database on your Raspberry Pi was uploaded to the Oracle database. If you receive a different response code, then check that your Raspberry Pi is connected to the network and that it is capable of communicating through any firewalls or proxy servers your network may be using.
+1. Κάθε `Κατάσταση Απόκρισης: 201` μήνυμα σημαίνει ότι μια σειρά τοπικής βάσης δεδομένων του Raspberry Pi έχει ανεβαστεί στη βάση δεδομένων της Oracle. Αν λάβετε ένα διαφορετικό κωδικό ανταπόκρισης, τότε ελέξτε αν το Raspberry Pi είναι συνδεδεμένο στο δίκτυο και ότι είναι ικανό να επικοινωνήσει μέσα απο κάθε firewalls ή διακομιστές μεσολάβησης που μπορεί να χρησημοποιεί το δίκτυο σας.
 
-## Checking the online database
+## Ελέχοντας την online βάση δεδομένων
 
-1. In your web browser, navigate to the [Oracle Database](https://apex.oracle.com/pls/apex/f?p=81290:LOGIN_DESKTOP:0:::::&tz=1:00) and log in:
+1. Στο φυλλομετριτή σας, εξερευνίστε στην [Βάση Δεδομένων της Oracle](https://apex.oracle.com/pls/apex/f?p=81290:LOGIN_DESKTOP:0:::::&tz=1:00) και συνδεθείτε:
 
   ![](images/test_03.png)
 
-1. On your dashboard, click on Weather Measurement to view the latest measurements from your Weather Station.
+1. Στο ταμπλό σας, κάντε click στην Μέτρηση του Καιρού για να δείτε την πιο πρόσφατη μέτρηση απο το μετεωρολογικό σταθμό σας.
 
   ![](images/test_04.png)
 
-1. It is worth having a play around with the filters and the download options with your data, to see what can be achieved.
+1. Είναι καλό να 'παίξετε' με τα φίλτρα και της επιλογές λήψης με τα δεδομένα, για να δείτε τη μπορεί να επιτευχθεί.
 
 ## What Next?
 
