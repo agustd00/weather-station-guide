@@ -5,37 +5,37 @@
 ## Χειρίζοντας τους αισθητήρες
 1. Το ανεμόμετρο και το βροχόμετρο μπορούν να χειριστούν καθώς κανένα απο τα δύο δεν καταγράφει δεδομένα εκτός αν κινηθούν σωματικά. Στρίβοντας το ανεμόμετρο και γέρνοντας το βροχόμετρο μπρός και πίσω μερικές φορές καθώς ακολουθείτε τα παρακάτω βήματα θα έχει ως αποτέλεσμα να φορτωθούν τα δεδομένα. 
 
-1. Ανοίξτε ένα τερματικό παράθυρο (**ctrl** + **alt** + **t**) and then change into the `weather-station` directory:
+1. Ανοίξτε ένα τερματικό παράθυρο (**ctrl** + **alt** + **t**) και τότε αλλάξτε το στο ευρετήριο του `μετεωρολογικού σταθμού`:
 
   ```bash
   cd weather-station
   ```
 
-1. To start logging sensor data, type the following into the terminal window:
+1. Για να ξεκινήσετε την φόρτωση των δεδομένων του αισθητήρα, πληκτρολογήστε τα παρακάτω στο τερματικό παράθυρο:
 
   ```bash
   ./log_all_sensors.py
   ```
 
-1. You should see output as shown in the screen capture below.
+1. Θα δείτε την έξοδο όπως την δείχνουμε παρακάτω.
 
   ![](images/test_01.png)
 
-1. Do not worry about the `Data truncated` warnings. The sensors measure to an unrealistic number of significant figures, so these values are truncated before they are added to the database.
+1. Να μην ανησηχείτε για της προϊδοποίησεις για την `Περικοπεί Δεδομένων`. Οι αισθητήρες μετρούνται σε ένα απίστευτο αριθμό σημαντικών ψηφίων, οπότε αυτές οι αξίες περικοπούνται πριν προσθεθούν στη βάση δεδομένων.
 
-## Upload to Oracle
+## Ανέβασμα στο Oracle
 
-1. The next step is to test that the software is capable of uploading the data to the online Oracle Database. To test this, type the following into the terminal:
+1. Το επόμενο βήμα είναι να ελεγχθεί ότι το λογισμικό είναι ικανό να ανεβάσει δεδομένα στην online βάση δεδομένων της Oracle. Για να ελεγχθεί αυτό, πληκτρολογήστε τα παρακάτω μέσα στον ακροδέκτη(τερματικό παράθυρο):
 
   ```bash
   sudo ./upload_to_oracle.py
   ```
 
-1. You should see output as shown the screen capture below.
+1. Θα δείτε την έξοδο όπως την δείχνουμε παρακάτω.
 
   ![](images/test_02.png)
 
-1. Each `Response status: 201` message means that a row of the local database on your Raspberry Pi was uploaded to the Oracle database. If you receive a different response code, then check that your Raspberry Pi is connected to the network and that it is capable of communicating through any firewalls or proxy servers your network may be using.
+1. Κάθε `Κατάσταση Απόκρισης: 201` μηνημα message means that a row of the local database on your Raspberry Pi was uploaded to the Oracle database. If you receive a different response code, then check that your Raspberry Pi is connected to the network and that it is capable of communicating through any firewalls or proxy servers your network may be using.
 
 ## Checking the online database
 
