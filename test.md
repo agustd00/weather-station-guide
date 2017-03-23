@@ -49,10 +49,10 @@
 
 1. Είναι καλό να 'παίξετε' με τα φίλτρα και της επιλογές λήψης με τα δεδομένα, για να δείτε τη μπορεί να επιτευχθεί.
 
-## What Next?
+## Επόμενο?
 
-Now that you have tested your Weather Station, close up the boxes with the long screws and ensure the grommets are in place. 
+Τώρα που έχετε δοκιμάσει το μετεωρολογικό σας σταθμό, κλείστε τα κουτιά με τις μακριές βίδες και βεβαιωθείτε ότι τα πλαστικά είναι στην θέση τους. 
 
   ![](images/close_up_station.png)
 
-You can then proceed to the next section, and learn how to [install the Weather Station at your school](siting.md).
+Μετά μπορείτε να προχωρίσετε στο επόμενο κεφάλαιο, και μάθετε πως να[Εγκαταστήσετε τον Μετεωρολογικό Σταθμό στο σχολείο σας](siting.md).
