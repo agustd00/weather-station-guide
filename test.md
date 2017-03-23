@@ -39,7 +39,7 @@
 
 ## Ελέχοντας την online βάση δεδομένων
 
-1. Στο φυλλομετριτή σας, εξερευνίστε στην [Βάση Δεδομένων της Oracle](https://apex.oracle.com/pls/apex/f?p=81290:LOGIN_DESKTOP:0:::::&tz=1:00) και συνδεθείτε:
+1. Στο φυλλομετρητή σας, εξερευνίστε στην [Βάση Δεδομένων της Oracle](https://apex.oracle.com/pls/apex/f?p=81290:LOGIN_DESKTOP:0:::::&tz=1:00) και συνδεθείτε:
 
   ![](images/test_03.png)
 
