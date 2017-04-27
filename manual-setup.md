@@ -1,136 +1,138 @@
-# Setting up the Raspberry Pi Oracle weather station software manually.
+# Χειροκίνητη ρύθμιση του λογισμικού του Μετεωρολογικού Σταθμού.
 
-You don't need any prior knowledge to set up the weather station. There are several steps, but the benefit of setting up manually is that you'll learn about the workings of the sensors and the station as you do it. You'll also be introduced to the command line interface, the text editor nano and the MySQL database. It's also a great introduction to Linux.
+Για να ρυθμίσετε το μετεωρολογικό σταθμό δε χρειάζεται προηγούμενη εμπειρία. Χρειάζεται να γίνουν αρκετά βήματα, αλλά τελειώνοντάς τα θα έχετε μάθει αρκετά πράγματα για τους αισθητήρες και το σταθμό. Θα έχετε αποκτήσει μια πρώτη επαφή με τη γραμμή εντολών, το διορθωτή κειμένου nano και τη βάση δεδομένων MySQL. Είναι επίσης μια πολύ καλή εισαγωγή στο Linux.
+
+Αν διαβάσετε τον αρχικό αγγλικό οδηγό θα δείτε ότι προτείνει να συναρμολογήσετε πρώτα το σταθμό και το Raspberry και μετά να ρυμίσετε το λογισμικό.
+Σας προτείνω να μην το κάνετε με αυτή τη σειρά, αλλά να ρυθμίστε πρώτα το λογισμικό.
 
 
-## Manual installation
+## Χειροκίνητη Εγκατάσταση
 
-1.  Start with a fresh install of the latest version of [Raspbian](https://www.raspberrypi.org/downloads/raspbian/).
-1.  When booting for the first time, you will be presented with the desktop.
+1. Ξεκινήστε με μια φρέσκια εγκατάσταση της τελευταίας έκδοσης του [Raspbian](https://www.raspberrypi.org/downloads/raspbian/).
+1. Όταν εκκινήσει για πρώτη φορά το Raspberry Pi, θα δείτε την επιφάνεια εργασίας του στα αγγλικά.
 
-1.  From the Menu button on the top-left, choose `Preferences` > `Raspberry Pi Configuration`.
+1. Από το Μενού πάνω αριστερά, επιλέξτε `Preferences` > `Raspberry Pi Configuration`.
     
-1. We recommend that you **change your password** using the button underneath.
+1. Σας προτείνουμε να **αλλάξετε τον κωδικό** από το κουμπί που είναι από κάτω.
 
-1. In the Interfaces tab, enable I2C:
+1. Στην καρτέλα Interfaces, ενεργοποιήστε το I2C:
 
     ![](images/i2c.png)
     
-1. A reboot dialogue will appear. Select "Yes". 
+1. Θα σας ζητηθεί να κάνετε επανεκκίνηση. Επιλέξτε "Yes". 
 
-## Setting up the real-time clock
+## Ρύθμιση του ρολογιού (RTC)
 
-We'll be doing most of the work from the command line. Open a terminal window, using the icon on the menu bar or pressing `ctrl`+`alt`+`t`.
+Θα κάνουμε την περισσότερη δουλειά από γραμμή εντολών. Ανοίξτε ένα τερματικό, χρησιμοποιώντας το εικονίδιο από τα πάνω εικονίδι ή πατώντας `ctrl`+`alt`+`t`.
 
    ![](images/terminal.png) 
 
-You'll now be at a prompt:
+θα δείτε το παρακάτω:
 
 ```bash
 pi@raspberrypi: ~ $
 ```
 
-You can type the commands which follow into this prompt.
+Μπορείτε τώρα να πληκτρολογήσετε τις παρακάτω εντολές.
 
-First, you'll need to download the necessary files: 
+Πρέπει, όμως, πρώτα να κατεβάσετε τα απαραίτητα αρχεία: 
 
 ```bash
 cd ~ && git clone https://github.com/raspberrypi/weather-station
 ```
 
-We've included an install script to set up the real-time clock automatically. You can run this file or, alternatively, follow the instructions below to set up the RTC manually. We recommend using the install script!
+Έχουμε συμπεριλάβει ένα σενάριο εγκατάστασης για να ρυθμιστεί αυτόματα το ρολόι πραγματικού χρόνου. Μπορείτε να το εκτελέσετε ή να ακολουθήσετε τις οδηγίες που ακολουθούν για να ρυθμίσετε το ρολόι με το χέρι. Σας προτείνουμε το αρχείο εγκατάστασης!
 
-## RTC setup
+## Εγκατάσταση ρολογιού
 
-First, you want to make sure you have all the latest updates for your Raspberry Pi:
+Βεβαιωθείτε πρώτα ότι έχετε τις τελευταίες ενημερώσεις για το Raspberry Pi με τις παρακάτω εντολές:
 
 ```bash
 sudo apt-get update && sudo apt-get upgrade
 ```
 
-You now need to make some changes to a config file to allow the Raspberry Pi to use the real-time clock:
+Θα πρέπει να κάνετε κάποιες αλλαγές σε ένα αρχείο ρυθμίσεωνγια να επιτρέψετε στο Raspberry Pi να χρησιμοποιήσει το ρολόι:
 
 ```bash
 sudo nano /boot/config.txt
 ```
 
-Add the following lines to the bottom of the file:
+Προσθέστε τις παρακάτω γραμμές στο τέλος του αρχείου:
 
 ```bash
 dtoverlay=w1-gpio
 dtoverlay=pcf8523-rtc
 ```
 
-Press **Ctrl + O** then **Enter** to save, and **Ctrl + X** to quit nano.
+Πατήστε **Ctrl + O** μετά **Enter** για να αποθηκεύσετε το αρχείο, και **Ctrl + X** για να βγείτε από nano.
 
-Now set the required modules to load automatically on boot:
+Τώρα ρυθμίστε τις απαραίτητες μονάδες να ξεκινούν αυτόματα κατά την εκκίνηση:
 
 ```bash
 sudo nano /etc/modules
 ```
 
-Add the following lines to the bottom of the file:
+Προσθέστε τις παρακάτω γραμμές στο τέλος του αρχείου:
 
 ```bash
 i2c-dev
 w1-therm
 ```
 
-Press **Ctrl + O** then **Enter** to save, and **Ctrl + X** to quit nano.
+Πατήστε **Ctrl + O** μετά **Enter** για να αποθηκεύσετε το αρχείο, και **Ctrl + X** για να βγείτε από nano.
 
-For the next steps, we need the Weather Station HAT to be connected to the Raspberry Pi:
+Για τα επόμενα βήματα, η πρόσθετη πλακέτα θα πρέπει να είναι συνδεμένη με το Raspberry Pi:
 
 ```bash
 sudo halt
 ```
 
-Reboot for the changes to take effect:
+Κάντε επανεκίνηση για να εφαρμοστούν οι αλλαγές:
 
 ```bash
 sudo reboot
 ```
 
-Check that the real-time clock (RTC) appears in `/dev`:
+Ελέξτε ότι το ρολόι εμφανίζεται στο φάκελο με τις συσκευές `/dev`:
 
 ```bash
 ls /dev/rtc*
 ```
 
-You should see something like `/dev/rtc0`.
+Θα πρέπει να δείτε κάτι σαν `/dev/rtc0`.
 
-## Initialise the RTC with the correct time
+## Ρύθμιση του ρολογιού με τη σωστή ώρα
 
-Use the `date` command to check the current system time is correct. If it's correct, then you can set the RTC time from the system clock with the following command:
+Χρησιμοποιήστε την εντολή `date` για να ελέξετε ότι η ώρα του συστήματος είναι σωστή. Αν όντως είναι σωστή, μπορείτε να ρυθμίσετε του ρολόι πραγματικού χρόνου από το ρολόι του συστήματος με την ακόλουθη εντολή:
 
 ```bash
 sudo hwclock -w
 ```
-
-If not, then you can set the RTC time manually using the command below (you'll need to change the `--date` parameter, as this example will set the date to the 1st of January 2014 at midnight):
+Αν δεν είναι σωστή, τότε ρυθμίστε την ώρα του ρολογιού πραγματικού χρόνου με την παρακάτω εντολή. Θα χρειαστεί να αλλάξετε την παράμετρο `--date`, δίνοντάς της ως τιμή την ημερομηνία και ώρα που έχετε εσείς την ώρα που εκτελείται την εντολή.
+Αν δεν το κάνετε, ημερομηνία θα οριστεί στα μεσάνυχτα της 1ης Ιανουαρίου 2014.
 
 ```bash
 sudo hwclock --set --date="yyyy-mm-dd hh:mm:ss" --utc
 ```
 
-For example:
+Για παράδειγμα:
 
 ```bash
-sudo hwclock --set --date="2015-08-24 18:32:00" --utc
+sudo hwclock --set --date="2017-02-18 18:32:00" --utc
 ```
 
-Then set the system clock from the RTC time:
+Ορίστε μετά την ώρα του συστήματος από την ρολόι πραγματικού χρόνου:
 
 ```bash
 sudo hwclock -s
 ```
-
-Now you need to enable setting the system clock automatically at boot time. First, edit the rule in `/lib/udev/`:
+Τώρα πρέπει μα ενεργοποιήσετε τη ρύθμιση του ρολογιού του συστήματος αυτόματα κατά την εκκίνηση. Επεξεργαστείτε πρώτα τον κανόνα στο αρχείο `/lib/udev/`:
+Πρέπει να ενεργοποιήσετε την αυτόματη ρύθμιση του ρολογιού πραγματικού χρόνου κατά την εκκίνηση του υπολογιστή. Για αρχή, επεξεργαστείτε τον κανόνα στο `/lib/udev/`:
 
 ```bash
 sudo nano /lib/udev/hwclock-set
 ```
-
-Find the lines at the bottom that read:
+Βρείτε τις γραμμές προς το τέλος που είναι:
 
 ```bash
 if [ yes = "$BADYEAR" ] ; then
@@ -140,7 +142,7 @@ else
 fi
 ```
 
-Change the `--systz` options to `--hctosys` so that they read:
+Αλλάξτε τις επιλογές `--systz` σε `--hctosys` έτσι ώστε να γράφει:
 
 ```bash
 if [ yes = "$BADYEAR" ] ; then
@@ -150,36 +152,36 @@ else
 fi
 ```
 
-Press **Ctrl + O** then **Enter** to save, and **Ctrl + X** to quit nano.
+Πατήστε **Ctrl + O** και **Enter** για να αποθηκεύσετε, και **Ctrl + X** για να κλείσετε το nano.
 
-## Remove the fake hardware clock package
+## Απομάκρυνση του πακέτου ψεύτικου ρολογιού (fake hardware clock)
 
-Use the following commands to remove the fake hardware clock package:
+Χρησιμοποιοιήστε την ακόλουθη εντολή για να απομακρύνετε το πακέτο αυτό:
 
 ```bash
 sudo update-rc.d fake-hwclock remove
 sudo apt-get remove fake-hwclock -y
 ```
 
-## Testing the sensors
+## Έλεγχος των αισθητήρων
 
-### Install the necessary software packages
+### Εγκατάσταση των απαραίτητων πακέτων λογισμικού
 
-Power up your Raspberry Pi and log in.
+Ανάψτε το Raspberry Pi και συνδεθείτε.
 
-At the command line, type the following: 
+Από τη γραμμή εντολών πληκτρολογήστε τα ακόλουθα: 
 
 ```bash
 sudo apt-get install i2c-tools python-smbus telnet -y
 ```
 
-Test that the I2C devices are online and working:
+Ελέξτε ότι οι συσκευές I2C devices λειτουργούν:
 
 ```bash
 sudo i2cdetect -y 1
 ```
 
-You should see output similar to this:
+Πρέπει να δείτε κάτι σαν το ακόλουθο:
 
 ```
 	 0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
@@ -193,69 +195,68 @@ You should see output similar to this:
 70: -- -- -- -- -- -- -- 77                         
 ```
 
-- `40` = HTU21D, the humidity and temperature sensor.
-- `77` = BMP180, the barometric pressure sensor.
-- `68` = PCF8523, the real-time clock. It will show as `UU` because it's reserved by the driver.
-- `69` = MCP3427, the analogue-to-digital converter on the main board.
-- `6a` = MCP3427, the analogue-to-digital converter on the snap-off AIR board.
+- `40` = HTU21D, ο αισθητήρας υγρασίας και θερμοκρασίας.
+- `77` = BMP180, ο αισθητήρας βαρομετρικής πίεσης.
+- `68` = PCF8523, το ρολόι πραγματικού χρόνου. Θα εμφανιστεί ως `UU` γιατί είναι δεσμευμένο από τον οδηγό.
+- `69` = MCP3427, ο μετατροπέας αναλογικού σήματος σε ψηφιακό στη μητρική.
+- `6a` = MCP3427, ο μετατροπέας ψηφιακού σήματος σε αναλογικού στη μητρική.
 
-Note: `40`, `77` and `6a` will only show if you have connected the **AIR** board to the main board.
+Παρατήρηση: Τα `40`, `77` και `6a` θα εμφανιστούν μόνο αν έχετε συνδέσει την πλακέτα **ΑΕΡΑ** με τη μητρική πλακέτα.
 
-Now that the sensors are working, we need a database to store the data from them.
+Τώρα που δουλεύουν οι αισθητήρες, χρειαζόμαστε μια βάση δεδομένων για να αποθηκεύσουμε τα δεδομένα που πέρνουμε από αυτούς.
+## Ρύθμιση Βάσης Δεδομένων
 
-## Database setup
+Θα ρυθμίσετε τώρα το σταθμό να αποθηκεύει αυτόματα τα δεδομένα που συνέλλεξε. Τα δεδομένα αποθηκεύονται στην κάρτα SD του Raspberry Pi σε μια βάση δεδομένων που λέγετε MySQL. Μόλις ο σταθμός αποθηκεύσει τα δεδομένα τοπικά, θα μπορείτε επίσης να τα [μεταφορτώσετε](oracle.md) σε μια κεντρική βάση δεδομένωn της Oracle Apex για να τα μοιράζεστε και με άλλους. 
 
-Now you'll set up your weather station to automatically log the collected weather data. The data is stored on the Pi's SD card using a database system called MySQL. Once your station is successfully logging data locally, you'll also be able to [upload that data](oracle.md) to a central Oracle Apex database to share it with others. 
+### Εγκατάσταση απαραίτητων πακέτων λογισμικού
 
-### Install the necessary software packages
-
-At the command line, type the following:
+Στη γραμμή εντολών πληκτρολογήστε:
 
 ```bash
 sudo apt-get update
 sudo apt-get install apache2 mysql-server python-mysqldb php5 libapache2-mod-php5 php5-mysql -y
 ```
   
-If you make a mistake, use the cursor UP arrow to go back to previous lines for editing.
+Αν κάνετε κάποιο λάθος, πατήστε το πάνω βελάκι για να επεξεργαστείτε μια προηγούμενη εντολή.
 
-Please note that this will take some time. You will be prompted to create and confirm a password for the root user of the MySQL database server. Don't forget it, as you'll need it later.
+Κατά τη διάρκεια της εγκατάστασης θα σας ζητηθεί να δημιουργήσετε και να επαληθεύσετε έναν κωδικό για το διαχειριστή του εξυπηρετητή βάσης δεδομένων MySQL. Μην τον ξεχάσετε, θα τον χρειαστείτε αργότερα.
 
-### Create a local database within MySQL
+### Δημιουργία τοπικής βάσης δεδομένων
 
-Enter the following:
+Γράψτε την ακόλουθη εντολή:
 
 ```bash
 mysql -u root -p
 ```
 
-Enter the password that you chose during installation.
+Βάλτε τον κωδικό που ορίσατε κατά τη διάρκεια της εγκατάστασης του εξυπηρετητή MySql παραπάνω.
 
-You'll now be at the MySQL prompt `mysql>`. First, create the database:
+Θα δείτε το `mysql>` είστε έτοιμοι να δημιουργήσετε τη βάση δεδομένων:
 
 ```mysql
 CREATE DATABASE weather;
 ```
 
-You should now see `Query OK, 1 row affected (0.00 sec)`.
+Πρέπει να δείτε `Query OK, 1 row affected (0.00 sec)`.
 
-Switch to that database:
+Ας αλλάξουμε στη βάση αυτή:
 
 ```mysql
 USE weather;
 ```
 
-You should see `Database changed`.
+Πρέπει να δείτε `Database changed`.
 
-If MySQL doesn't do anything when it should, you've probably forgotten the final `;`. Just type it in when prompted and press **Enter**.
+Αν η MySQL δεν κάνει αυτό που πρέπει ή εμφανίζει λάθη, το πιθανότερο είναι να έχετε ξεχάσει το τελικό `;`. Απλά πληκτρολογήστε το και πατήστε **Enter**.
   
-### Create a table to store the weather data
+### Δημιουργία πίνακα στη βάση
 
-Type the code below, taking note of the following tips: 
+Ο πρωτότυπος οδηγός προτείνει να πληκτρολογήσετε τον παρακάτω κώδικα, δίνοντας και τις ακόλουθες συμβουλές: 
 
-- Don't forget the commas at the end of the row.
-- Use the cursor UP arrow to copy and edit a previous line, as many are similar.
-- Type the code carefully and **exactly** as written, otherwise things will break later.
-- Use CAPS LOCK!
+- Μην ξεχάσετε τα κόμματα στο τέλος των γραμμών.
+- Χρησιμοποιήστε το πάνω βελάκι στο πληκτρολόγιο για να αντιγράψετε και να επεξεργαστείτε μια από τις προηγούμενες γραμμές καθώς είναι παρόμοιες.
+- Πληκτρολογήστε τον κώδικα προσεκτικά και **ακριβώς** όπως τον βλέπετε, αλλιώς υπάρχει περίπτωση να υπάρχει πρόβλημα αργότερα.
+- Χρησιμοπιήστε CAPS LOCK!
   
 ```
   CREATE TABLE WEATHER_MEASUREMENT(
@@ -274,39 +275,60 @@ Type the code below, taking note of the following tips:
     PRIMARY KEY ( ID )
   );
 ```
-  
-You should now see `Query OK, 0 rows affected (0.05 sec)`.
-  
-Press `Ctrl - D` or type `exit` to quit MySQL.
 
-## Set up the sensor software
+Θα δείτε κάτι σαν `Query OK, 0 rows affected (0.05 sec)`.
 
-Begin by downloading the data logging code. You can skip this step if you have set up the [real-time clock](software-setup.md).
+Ας το κάνετε λίγο διαφορετικά να γλυτώσετε γράψιμο και λάθη. Επιλέξτε και αντιγράψτε τις παραπάνω εντολές, από το 'CREATE έως το ); . 
+Πατήστε  `Ctrl - D` ή πληκτρολογήστε `exit` και **ENTER** για να βγείτε από τη MySQL.
+
+Από γραμμή εντολών γράψτε:
+```
+nano myscript.sql
+```
+Στο παράθυρο που θα εμφανιστεί Πατήστε δεξί κλικ και paste. Πρέπει να δείτε κάτι σαν την παρακάτω εικόνα:
+![Παράθυρο τερματικού](/images/Terminal_063.png?raw=true)  
+
+Πατήστε **Ctrl + O** μετά **Enter** για να αποθηκεύσετε το αρχείο, και **Ctrl + X** για να βγείτε από το nano.
+
+Γράψτε:
+```
+mysql -u root -p -h localhost weather < myscript.sql
+```
+Ο πίνακας δημιουργήθηκε στη βάση μας και είναι έτοιμος να δεχτεί τα δεδομένα μας.
+
+## Εγκατάσταση το λογισμικού για τους αισθητήρες
+
+Ξεκινήστε κατεβάζοντας τον κώδικα για την καταγραφή των δεδομένων. Μπορείτε να παραλείψετε αυτό το βήμα αν έχετε ήδη εγκαταστήσει το [ρολόι πραγματικού χρόνου](software-setup.md).
 
 ```
 cd ~
 git clone https://github.com/raspberrypi/weather-station.git
 ```
+Θα δημιουργηθεί ένας νέος φάκελος μέσα στον προσωπικό σας με όνομα `weather-station`.
 
-This will create a new folder in the home directory called `weather-station`.
+### Ξεκινήστε το δαίμονα του μετεωρολογικού σταθμού και δοκιμάστε τον
 
-### Start the weather station daemon and test it
+Σύμφωνα με την [Eισαγωγή στο Linux, Ένας πρακτικός οδηγός](http://www.it.uom.gr/teaching/linux/intro-linux-gr/intro-linux.html#sect_04_01), από το Πανεπιστήμιο Μακεδονίας:
+> Οι δαίμονες (daemons) είναι διεργασίες διακομιστή που εκτελούνται συνεχώς. Συνήθως αρχικοποιούνται με την έναρξη του συστήματος και μετά περιμένουν στο παρασκήνιο μέχρι να ζητηθεί η συνδρομή τους.
 
-A daemon is a process that runs in the background. To start the daemon we need for the weather station, use the following command:
+Για να ξεκινήσετε το δαίμονα για το μετεωρολογικό σταθμό, εκτελέστε την παρακάτω εντολή:
 
 ```bash
 sudo ~/weather-station/interrupt_daemon.py start
 ```
   
-You should see something like `PID: 2345` (your number will be different).
+Πρέπει να δείτε κάτι σαν `PID: 2345` (ο αριθμός θα είναι διαφορετικός).
   
-A continually running process is required to monitor the rain gauge and the anemometer. These are reed switch sensors and the code uses interrupt detection. These interrupts can occur at any time, as opposed to the timed measurements of the other sensors. You can use the **telnet** program to test or monitor it, with the following command:
+Για την παρακολούθηση του μετρητή βροχή και του ανεμόμετρου απαιτείται μια διαδικασία (πρόγραμμα) που εκτελείται συνέχεια. Οι αισθητήρες αυτοί είναι 
+μαγνητικοί αισθητήρες reed και ο κώδικας χρησιμοποιεί [διακοπές.](http://www.it.uom.gr/project/mycomputer/r_usage/i_intro.html) 
+Οι διακοπές αυτές μπορούν να συμβούν οποιαδήποτε στιγμή, σε αντίθεση με το τις μετρήσεις των άλλων αισθητήρων που γίνονται σε τακτικά χρονικά διαστήματα. 
+Μπορείτε να χρησιμοποιήσετε το πρόγραμμα **telnet** για να τα δοκιμάσετε ή να τα παρακολουθήσετε με την ακόλουθη εντολή:
   
 ```bash
 telnet localhost 49501
 ```
   
-You should see something like this:
+Θα πρέπει να δείτε κάτι σαν κι αυτό:
 
 ```
 Trying 127.0.0.1...
@@ -315,132 +337,135 @@ Escape character is '^]'.
 OK
 ```
 
-The following text commands can be used:
+Μπορείτε να χρησιμοποιήσετε τις ακόλουθες εντολές:
 
-- `RAIN`: displays rainfall in ml
-- `WIND`: displays average wind speed in kph
-- `GUST`: displays wind gust speed in kph
-- `RESET`: resets the rain gauge and anemometer interrupt counts to zero
-- `BYE`: quits
+- `RAIN`: εμφανίζει τον όγκο βροχής σε ml
+- `WIND`: εμφανίζει τη μέση ταχύτητα ανέμου σε χ/ω
+- `GUST`: εμφανίζει την ταχύτητα ριπών αέρα σε χ/ω
+- `RESET`: μηδενίζει τους μετρητές διακοπής του μετρητή βροχής και του ανεμόμετρου.
+- `BYE`: έξοδος
 
-Use the `BYE` command to quit.
+Με την εντολή `BYE` αποσυνδέεστε.
+![](images/telnet.png)
+Αν ο υπολογιστής σας δεν έχει εγκατεστημένο εφαρμογή telnet, όπως συνήθως συμβαίνει στα windows,μπορείτε να χρησιμοποιήσετε το [putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html?).
+Είναι ένα ελεύθερο λογισμικό που ενσωματώνει πελάτη telnet και, ίσως ακόμα πιο σημαντικό, πελάτη ssh. Με το putty μπορείτε να συνδεθείτε στο 
+raspberrypi απομακρυσμένα μέσω ssh και μετά με telnet, όπως περιγράφεται παραπάνω.
 
-### Set the weather station daemon to automatically start at boot
+### Αυτόματη εκκίνηση του δαίμονα κατά την εκκίνηση του υπολογιστή
 
-Use the following command to automate the daemon:
+Χρησιμοποιήστε την ακόλουθη εντολή για να αυτοματοποιήσετε το δαίμονα:
 
 ```bash
 sudo nano /etc/rc.local
 ```
   
-Insert the following lines before `exit 0` at the bottom of the file:
+Εισάγετε τις ακόλουθες γραμμές πριν από το `exit 0` στο τέλος του αρχείου:
 
 ```bash
-echo "Starting Weather Station daemon..."
+echo "Ο δαίμονας του μετεωρολογικού σταθμού ξεκινά..."
     
 /home/pi/weather-station/interrupt_daemon.py start
 ```
 
-Press `Ctrl - O` then `Enter` to save, and `Ctrl - X` to quit nano.
+Πατήστε `Ctrl - O` και μετά `Enter` για να αποθηκεύσετε και `Ctrl - X` για να βγείτε από το nano.
     
-### Update the MySQL credentials file
+### Ενημέρωση αρχείου ρυθμίσεων MySQL
 
-You'll need to use the password for the MySQL root user that you chose during installation. If you are **not** in the `weather-station` folder, type:
+Θα χρειαστεί να χρησιμοποιήσετε τον κωδικό του χρήστη root της MySQL που επιλέξατε κατά την εγκατάσταση. Αν **δεν** είστε στο φάκελο `weather-station`, γράψτε:
 
 ```bash
 cd ~/weather-station
 ```
 
-then: 
+και μετά: 
 
 ```bash
 nano credentials.mysql
 ```
   
-Change the password field to the password you chose during installation of MySQL. The double quotes `"` enclosing the values are important, so take care not to remove them by mistake.
+Αλλάξτε το πεδίο password και βάλτε τον κωδικό που διαλέξατε κατά την εγκατάσταση της MySQL. Προσέξτε να μην διαγράψετε κατά λάθος τα διπλά εισαγωγικά `"` στις τιμές.
   
-Press **Ctrl + O** then **Enter** to save, and **Ctrl + X** to quit nano.
+Πατήστε `Ctrl - O` και μετά `Enter` για να αποθηκεύσετε και `Ctrl - X` για να βγείτε από το nano.
 
-## Automate updating of the database
+## Αυτόματη ενημέρωση της βάσης δεδομένων
 
-The main entry points for the code are `log_all_sensors.py` and `upload_to_oracle.py`. These will be called by a scheduling tool called [cron](http://en.wikipedia.org/wiki/Cron) to take measurements automatically. The measurements will be saved in the local MySQL database, and they will also be uploaded to the Oracle Apex database online [if you registered](oracle.md).
+Τα προγράματα που χρειάζονται είναι τα `log_all_sensors.py` και `upload_to_oracle.py`. Αυτά καλούνται αυτόματα από ένα εργαλείο χρονοπρογραμματισμού εργασιών που ονομάζεται [cron](http://www.it.uom.gr/teaching/linux/intro-linux-gr/intro-linux.html#sect_04_04_04) και παίρνουν μετρήσεις αυτόματα. Οι μετρήσεις αποθηκεύονται στην τοπική βάση δεδομένων MySQL και στη βάση δεδομένων Oracle Apex στο διαδίκτυο [αν εγραφείτε](oracle.md).
 
-You should enable cron to start taking measurements automatically. This is also known as **data logging mode**: 
+Για να μπορέσετε να πέρνετε μετρήσεις αυτόματα πρέπει να ενεργοποιήσετε το cron. Αυτή η κατάσταση είναι γνωστή ώς **κατάσταση καταγραφής δεδομένων**: 
 
 ```bash
-crontab < crontab.save
+crontab < ~/weather-station/crontab.save
 ```
 
-Your weather station is now live and recording data at timed intervals.
+Ο σταθμός σας τώρα είναι ενεργός και καταγράφει δεδομένα σε τακτικά χρονικά διαστήματα.
   
-You can disable data logging mode at any time by removing the crontab with the command below:
+Μπορείτε να απενεργοποιήσετε την κατάσταση καταγραφής δεδομένων όποτε θέλετε με την ακόλουθη εντολή:
   
 ```bash
 crontab -r
 ```
   
-To enable data logging mode again, use the command below:
+Για να ενεργοποιήσετε την κατάσταση καταγραφής δεδομένων ξανά, χρησιμοποιήστε την εντολή:
   
 ```bash
 crontab < ~/weather-station/crontab.save
 ```
   
-Please note that you should not have data logging mode enabled while you're working through the lessons in the [scheme of work](https://github.com/raspberrypilearning/weather-station-sow).
+Σημείωση: Αν δουλεύετε πάνω στα [μαθήματα](https://github.com/raspberrypilearning/weather-station-sow) δε θα πρέπει να έχετε ενεργοποιημένη την κατάσταση καταγραφής δεδομένων.
   
-### Manually trigger a measurement
+### Χειροκίνηση μέτρηση
 
-You can manually cause a measurement to be taken at any time with the following command:
+Μπορείτε να πάρετε μια μέτρηση όποτε θέλετε με την ακόλουθη εντολή:
 
 ```bash
 sudo ~/weather-station/log_all_sensors.py
 ```
   
-Don't worry if you see `Warning: Data truncated for column X at row 1`: this is expected.
+Μην ανησυχήσετε αν δείτε το μήνυμα `Warning: Data truncated for column X at row 1`: είναι κάτι αναμενόμενο.
 
   
-### View the data in the database 
+### Προβολή των δεδομένων της βάσης 
 
-Enter the following command:
+Δώστε την ακόλουθη εντολή:
 
 ```bash
 mysql -u root -p
 ```
   
-Enter the password (the default for the disk image installation is `tiger`). Then switch to the `weather` database:
+Πληκτρολογήστε τον κωδικό του διαχειριστή της MySql. Αλλάξτε στη βάση δεδομένων `weather`:
   
 ```bash
 USE weather;
 ```
   
-Run a select query to return the contents of the `WEATHER_MEASUREMENT` table:
+Εκτελέστε ένα ερώτημα επιλογής για να δείτε τα περιεχόμενα του πίνακα `WEATHER_MEASUREMENT`:
 
 ```bash
 SELECT * FROM WEATHER_MEASUREMENT;
 ```
 
-![](images/database.png)
+![](archive/images/database.png)
   
-After a lot of measurements have been recorded, it will be sensible to use the SQL `where` clause to only select records that were created after a specific date and time:
+Αφού καταγραφούν πολλές μετρήσεις, θα είναι λογικό να επιλέγετε μόνο τις εγγραφές που δημιουργήθηκαν μετά από κάποια ημερομηνία. Για παράδειγμα η παρακάτω εντολή εμφανίζει τις εγγραφές που δημιουργήθηκαν μετά την 01/04/2017:
   
 ```bash
-SELECT * FROM WEATHER_MEASUREMENT WHERE CREATED > '2014-01-01 12:00:00';
+SELECT * FROM WEATHER_MEASUREMENT WHERE CREATED > '2017-04-01 12:00:00';
 ```
-  
-Press **Ctrl + D** or type `exit` to quit MySQL.
+Πατήστε **Ctrl + D** ή γράψτε `exit` και πατήστε το `enter` για να αποσυνδεθείτε από τη MySQL.
 
-## Upload your data to the Oracle Apex database
+## Ανέβασμα δεδομένων στη βάση δεδομένων Oracle Apex
 
-At this stage, you have a weather station which reads its sensors and stores the data at regular intervals in a database on the SD card. But what if the SD card gets corrupted? How do you backup your data? And how do you share it with the rest of the world?
+Στη φάση αυτή, έχετε ένα μετεωρολογικό σταθμό που διαβάζει τους αισθητήρες του και αποθηκεύει τα δεδομένα σε τακτικά χρονικά διαστήματα σε μια βάση δεδομένων στην κάρτα SD. Αλλά τι θα γίνει αν η κάρτα χαλάσει; Πως θα κρατήσετε αντίγραφα των δεδομένων σας; Και πως θα τα μοιραστείτε με τον υπόλοιπο κόσμο;
 
-Oracle has set up a central database to allow all schools in the Weather Station project to upload their data. It is safe there and you can download it in various formats, share it, and even create graphs and reports. Here's how to do it.
+Η εταιρία Oracle έχει δημιουργήσει μια κεντρική βάση δεδομένων που επιτρέπει σε όλα τα σχολεία που συμμετέχουν στο έργο του Μετεωρολογικού Σταθμού να ανεβάζουν τα δεδομένα τους. Στη βάση αυτή τα δεδομένα είναι ασφαλή και μπορείτε να τα κατεβάσετε σε διάφορες μορφές, να τα μοιραστείτε, ακόμα και να δημιουργήσετε γραφήματα και αναφορές. Ας δούμε πως γίνεται αυτό.
+Automate updating of the database
+### Εγγραφή του σχολείου σας
 
-### Register your school
+Θα πρέπει να [εγγράψετε το σχολείο σας](oracle.md) και να προσθέσετε το μετεωρολογικό σας σταθμό. Επιστρέψτε εδώ όταν έχετε τον κωδικό του σταθμού σας.
 
-You'll need to [register your school](oracle.md) and add your weather station. Come back here when you have your weather station passcode.
+### Ενημέρωση αρχείου διαπιστευτηρίων με τις λεπτομέριες του σταθμού σας
 
-### Update credential files with your weather station details
-
-Add the weather station name and password to the local Oracle credentials file with the commands below. This allows the code that uploads to Oracle to add it to the correct weather station.
+Με τις ακόλουθες εντολές μπορείτε να προσθέσετε το όνομα και τον κωδικό του σταθμού σας στο τοπικό αρχείο διαπιστευτηρίων της Oracle. Το πρόγραμμα που ανεβάζει τα δεδομένα του σταθμούας στην Oracle θα τα προσθέτει στο σωστό μετεωρολογικό σταθμό.
 
 ```bash
 cd ~/weather-station
@@ -448,33 +473,33 @@ cd ~/weather-station
 nano credentials.oracle.template
 ```
   
-Replace the `name` and `key` parameters with the `Weather Station Name` and `Passcode` of the weather station above. The double quotes `"` enclosing these values in this file are important, so take care not to remove them by mistake. The weather station name must match exactly and is case-sensitive.
+Αντικαταστήστε τα πεδία `name` and `key` με τις τιμές των πεδίων `Weather Station Name` και `Passcode` του μετεωρολογικού σας σταθμού. Τα διπλά εισαγωγικά `"` που περικλείουν τις τιμές είναι σημαντικά. Προσέξτε λοιπόν να μην τα διαγράψετε κατά λάθος. Το όνομα του σταθμού πρέπει να είναι ακριβώς το ίδιο και ισχύει η διάκριση πεζών - κεφαλαίων.
   
-Press `Ctrl - O` then `Enter` to save, and `Ctrl - X` to quit nano.
+Πατήστε `Ctrl - O` και μετά `Enter` για να αποθηκεύσετε και `Ctrl - X` για να βγείτε από το nano.
   
-Rename the Oracle credentials template file to enable it:
+Αλλάξτε το όνομα του αρχείου για να το ενεργοποιήσετε:
 
 ```bash
 mv credentials.oracle.template credentials.oracle
 ```
   
-### Checking that data is received
+### Έλεγχος αποστολής δεδομένων
 
-Manually trigger an upload with the following command:
+Κάντε χειροκίνητα μια αποστολή δεδομένων με την ακόλουθη εντολή:
 
 ```bash
 sudo ~/weather-station/upload_to_oracle.py
 ```
 
-Log into your school's [Oracle Apex account](oracle.md) and go to 'Weather Measurements'. You should see the station readings:
+Συνδεθείτε στο [λογαριασμό σας στο Oracle Apex ](oracle.md) και πηγαίνετε στο 'Weather Measurements'. Πρέπει να δείτε τις μετρήσεις του σταθμού σας:
 
-![](images/weather-readings.png)
+![](archive/images/weather-readings.png)
 
 
-You can download your data in various formats and also make charts using the menu:
+Μπορείτε να κατεβάσετε τα δεδομένά σας σε διάφορες μορφές και επίσης να φτιάξετε διαγράμματα χρησιμοποιόντας το μενού:
 
-![](images/wsmenu.png)
+![](/archive/images/wsmenu.png)
 
-## Next steps
+## Επόμενα βήματα
 
-- You can now proceed to setting up the rest of the hardware in the [Hardware Setup Section](build2.md)
+- Μπορείτε τώρα να συνεχίσετε με τη ρύθμιση του υπόλοιπου υλικού στο [τμήμα ρύθμισης υλικού](build2.md)
